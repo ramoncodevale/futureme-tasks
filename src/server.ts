@@ -1,9 +1,12 @@
 import express from 'express';
 import sqlite3 from 'sqlite3';
 import path from 'path';
+import cors from 'cors'; 
 
 const app = express();
 const port = 3001;
+
+app.use(cors());
 
 app.use(express.json());
 
@@ -74,7 +77,6 @@ app.delete('/tasks/:id', (req, res) => {
   });
 });
 
-// Iniciar o servidor
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
